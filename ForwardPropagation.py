@@ -12,7 +12,7 @@ class NeuralNetwork:
         self.output_units = output_units
 
         #weights(parameters)
-        self.W1 = np.random.randn(self.hidden_units, self.input_units)
+        self.W1 = np.random.randn(self.input_units, self.hidden_units)
         self.W2 = np.random.randn(self.hidden_units, self.output_units)
     
     def ForwardProp(self, X):
@@ -25,5 +25,14 @@ class NeuralNetwork:
     
     def sigmoid(self, z):
         return 1/(1+np.exp(z))
+
+
+if __name__=='__main__':
+    
+    X = np.array([[2,3],[4,5],[6,7]])
+    nn = NeuralNetwork(2, 3, 1)
+    yhat = nn.ForwardProp(X)
+
+    print(yhat)
 
 
